@@ -13,21 +13,21 @@ public class Main {
 
         do {
 
-            System.out.println("Welcome to the game! Please enter the word you want to guess");
+            System.out.println("Добро пожаловать,введите пароль который нужно отгадать");
             do {
                 isSuccessful = processing.setWord(scanner.nextLine());
             } while (!isSuccessful);
             isSuccessful = false;
-            System.out.println("\nNow enter the description for the word");
+            System.out.println("\nВведите описание");
             processing.setDescription(scanner.nextLine());
-            System.out.println("\nIf you want to cancel the game, please type '-' in console");
-            System.out.println("If you want to guess the entire word at once, please type '+' in console");
-            System.out.println("\nNow you can proceed to guessing the word");
+            System.out.println("\nХотите выйти напишите -");
+            System.out.println("Хотите угадать пароль целиком,введите +");
+            System.out.println("\nТеперь вы можете отгадывать слово");
 
             do {
                 String line = scanner.nextLine();
                 if (line.equals("-")) {
-                    System.out.println("Good luck!");
+                    System.out.println("Удачи!");
                     return;
                 }
                 else if (line.equals("+"))

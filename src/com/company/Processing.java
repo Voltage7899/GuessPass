@@ -18,11 +18,11 @@ public class Processing {
         Pattern pattern = Pattern.compile("[a-zа-я]{3,}");
         if (pattern.matcher(word).matches()){
             mWord.setWord(word);
-            System.out.println("Word was set successfully");
+            System.out.println("Пароль установлен");
             return true;
         }
         else {
-            System.out.println("Wrong word type, try again");
+            System.out.println("Неправильный тип пароля");
             return false;
         }
     }
@@ -40,20 +40,20 @@ public class Processing {
             mWord.setSecretWord(buildSecretWord(letter));
             if (mWord.isGuessedFully())
             {
-                System.out.println("Congratulations, you've guessed the word! The word was \"" + mWord.getSecretWord() + "\"");
+                System.out.println("Вы угадали пароль:  \"" + mWord.getSecretWord() + "\"");
                 return true;
             }
-            else System.out.println("This word contains specified letter! Current word is: " + mWord.getSecretWord());
+            else System.out.println("Слово содержит специальный символ" + mWord.getSecretWord());
         }
         return false;
     }
     public boolean isGuessed(String letter){
         if (letter.length() > 1){
-            System.out.println("You can guess only 1 symbol per attempt");
+            System.out.println("Вы можете угадать только один элемент пароля");
             return false;
         }
         if (!mWord.getWord().contains(letter)){
-            System.out.println("This word does not contain specified letter.");
+            System.out.println("Пароль не содержит символ");
             return false;
         }
         else return true;
@@ -71,7 +71,7 @@ public class Processing {
     public boolean guessWord(String word){
         if (word.equals(mWord.getWord())){
             mWord.setSecretWord(word);
-            System.out.println("Congratulations, you've guessed the entire word! The word was \"" + mWord.getSecretWord() + "\"");
+            System.out.println("Вы угадали все слово \"" + mWord.getSecretWord() + "\"");
             return true;
         }
         else {
@@ -82,7 +82,7 @@ public class Processing {
 
     public boolean restart(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Do you want to play again? y/n");
+        System.out.println("Хотите сыграть? y/n");
         String play;
         do {
             play = scanner.nextLine();
@@ -92,7 +92,7 @@ public class Processing {
         if (play.equals("y")){
             return true;
         } else {
-            System.out.println("Good luck");
+            System.out.println("Удачи");
             return false;
         }
     }
